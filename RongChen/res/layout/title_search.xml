@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/bg_titlebar" >
+
+        <EditText
+            android:id="@+id/et_search_text"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/submit_selector_search"
+            android:drawableLeft="@drawable/search_back"
+            android:hint="搜索 "
+            android:imeOptions="actionSearch"
+            android:drawablePadding="5dp"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:paddingRight="@dimen/right_margin_dimen"
+            android:text="@string/tv_search"
+            android:textColor="@color/font_white"
+            android:textIsSelectable="false"
+            android:textSize="18sp" />
+        
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:paddingRight="@dimen/right_margin_dimen"
+            android:text="@string/tv_search_cancel"
+            android:textColor="@color/font_white"
+            android:textIsSelectable="false"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</merge>

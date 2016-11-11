@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/font_white"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <FrameLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/gray" />
+
+    <RadioGroup
+        android:id="@+id/main_bottom_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/main_home_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="@dimen/little_sapce"
+            android:drawableTop="@drawable/main_home_page_selector"
+            android:gravity="center"
+            android:paddingLeft="0dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="@string/home_page"
+            android:textColor="@drawable/main_home_page_color_selector" />
+
+        <RadioButton
+            android:id="@+id/main_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="@dimen/little_sapce"
+            android:drawableTop="@drawable/main_recommend_selector"
+            android:gravity="center"
+            android:paddingLeft="0dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="@string/recommend"
+            android:textColor="@drawable/main_recommend_color_selector" />
+
+        <RadioButton
+            android:id="@+id/main_learn_drive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="@dimen/little_sapce"
+            android:drawableTop="@drawable/main_learn_drive_selector"
+            android:gravity="center"
+            android:paddingLeft="0dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="@string/learn_drive"
+            android:textColor="@drawable/main_learn_drive_color_selector" />
+
+        <RadioButton
+            android:id="@+id/main_trainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="@dimen/little_sapce"
+            android:drawableTop="@drawable/main_trainer_selector"
+            android:gravity="center"
+            android:paddingLeft="0dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="@string/trainer"
+            android:textColor="@drawable/main_trainer_color_selector" />
+
+        <RadioButton
+            android:id="@+id/main_my_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="@dimen/little_sapce"
+            android:drawableTop="@drawable/main_my_home_selector"
+            android:gravity="center"
+            android:paddingLeft="0dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="@string/my_home"
+            android:textColor="@drawable/main_my_home_color_selector" />
+    </RadioGroup>
+
+</LinearLayout>
