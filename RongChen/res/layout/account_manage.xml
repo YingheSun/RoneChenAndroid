@@ -69,7 +69,6 @@
                     android:id="@+id/radioMale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="true"
                     android:text="男     "
                     android:textColor="#d5d5d5" >
                 </RadioButton>

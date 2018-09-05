@@ -1,24 +1,17 @@
 package com.soundlifegroup.rongchen;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,9 +19,11 @@ import android.widget.Toast;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.soundlifegroup.rongchen.R.style;
 import com.soundlifegroup.rongchen.adapter.Shop_Adapter;
-import com.soundlifegroup.rongchen.model.Order_List;
-import com.soundlifegroup.rongchen.model.Order_List.Order.OrderItem;
+import com.soundlifegroup.rongchen.adapter.Shop_Adapter.Callback;
+import com.soundlifegroup.rongchen.adapter.Shop_Adapter.MyClickListener;
+import com.soundlifegroup.rongchen.model.Order_Model.Order_Seria;
 import com.soundlifegroup.rongchen.model.Shop_Car_List;
 import com.soundlifegroup.rongchen.model.Shop_Car_List.Shop;
 import com.soundlifegroup.rongchen.model.Submit_Order_Model;
@@ -36,9 +31,10 @@ import com.soundlifegroup.rongchen.utils.AccessServerUtil;
 import com.soundlifegroup.rongchen.utils.AccessServerUtil.ServerResult;
 import com.soundlifegroup.rongchen.utils.HttpUrl;
 import com.soundlifegroup.rongchen.utils.SpUtils;
+import com.soundlifegroup.rongchen.view.MyDialog;
 
 public class Shop_Car_Activity extends BaseFragmentActivity implements
-		OnItemClickListener {
+		OnItemClickListener, Callback {
 	@ViewInject(R.id.tv_titlebar_left)
 	private TextView tv_titlebar_left;
 	@ViewInject(R.id.tv_titlebar_title)
@@ -57,13 +53,14 @@ public class Shop_Car_Activity extends BaseFragmentActivity implements
 	private EditText et_phone;
 	@ViewInject(R.id.but_place_order)
 	private Button but_place_order;
-	private RequestParams params, params_submit;
+	private RequestParams params, params_submit, params_confirm;
 	private Shop_Adapter shop_adapter;
 	private List<Shop> list;
 	private float num;
-	private List<Map> list_Item;
-	private int[][] item;
-	private Map map = new LinkedHashMap();
+	private List<Order_Seria> order_seria;
+	private MyDialog mydialog;
+	private TextView tv_cancel, tv_confirm;
+	private String product;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -121,6 +118,7 @@ public class Shop_Car_Activity extends BaseFragmentActivity implements
 		list = new ArrayList<Shop>();
 		getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+		mydialog = new MyDialog(this, style.MyDialog);
 	}
 
 	@Override
@@ -141,29 +139,29 @@ public class Shop_Car_Activity extends BaseFragmentActivity implements
 					public void onSuccess(Object object) {
 						Shop_Car_List shop_car_list = (Shop_Car_List) object;
 						if (shop_car_list.getResults() != null) {
+							product = shop_car_list.getResults().get(0)
+									.getProduct();
+							list.clear();
 							list.addAll(shop_car_list.getResults());
-							list_Item = new ArrayList<Map>();
-							item = new int[shop_car_list.getResults().size()][2];
 							for (int i = 0; i < list.size(); i++) {
 								num = num + list.get(i).getProductPrice();
-								// item[i][0] = list.get(i).getAmount();
-								// item[i][1] = list.get(i).getId();
-								// list_Item.add(item[i][0]);
-								// list_Item.add(item[i][1]);
-
-								// map.put("productID",
-								// shop_car_list.getResults().get(i).getId(),"amount",
-								// shop_car_list.getResults().get(i).getAmount());
-								// map.put("amount",
-								// shop_car_list.getResults().get(i).getAmount());
+								order_seria = new ArrayList<Order_Seria>();
+								Order_Seria o = new Order_Seria();
+								o.setAmount(list.get(i).getAmount());
+								o.setProductID(list.get(i).getId());
+								order_seria.add(o);
+								// Toast.makeText(context,order_seria.get(i).getProductID()+"",
+								// 1).show();
 							}
+							// Toast.makeText(context, order_seria + "",
+							// 1).show();
 
 							// Toast.makeText(context,
 							// map+"", 1).show();
 							tv_total.setText(num + "");
-							shop_adapter = new Shop_Adapter(context, list);
+							shop_adapter = new Shop_Adapter(context, list,
+									mListener);
 							shop_list.setAdapter(shop_adapter);
-
 						}
 
 					}
@@ -176,8 +174,39 @@ public class Shop_Car_Activity extends BaseFragmentActivity implements
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		// mydialog.show();
+
+		// mydialog.getWindow().setType(
+		// WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
 
 	}
+
+	/**
+	 * 61 * 实现类，响应按钮点击事件 62
+	 */
+	private MyClickListener mListener = new MyClickListener() {
+		@Override
+		public void myOnClick(int position, View v) {
+			mydialog.show();
+			tv_confirm = (TextView) mydialog.findViewById(R.id.tv_confirm);
+			tv_confirm.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					Http_Confirm();
+					mydialog.dismiss();
+				}
+			});
+			tv_cancel = (TextView) mydialog.findViewById(R.id.tv_cancel);
+			tv_cancel.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					mydialog.dismiss();
+				}
+			});
+		}
+	};
 
 	public void HttpUtils_Submit() {
 		params_submit = new RequestParams();
@@ -192,7 +221,7 @@ public class Shop_Car_Activity extends BaseFragmentActivity implements
 				.toString());
 		params_submit.addBodyParameter("receiverPhone", et_phone.getText()
 				.toString());
-		params_submit.addBodyParameter("orderItem", list_Item + "");
+		params_submit.addBodyParameter("orderItem", order_seria + "");
 		AccessServerUtil.server_post(this, HttpUrl.orders_url, params_submit,
 				Submit_Order_Model.class, new ServerResult() {
 
@@ -216,6 +245,34 @@ public class Shop_Car_Activity extends BaseFragmentActivity implements
 					@Override
 					public void onFailure(String code, String info) {
 						Toast.makeText(context, "失败", 1).show();
+					}
+				});
+	}
+
+	@Override
+	public void click(View v) {
+	}
+
+	public void Http_Confirm() {
+		params_confirm = new RequestParams();
+		params_confirm.addHeader("Authorization",
+				"JWT " + CommApplication.getInstance().token);
+		params_confirm.addBodyParameter("product", product);
+		params_confirm.addBodyParameter("amount", "1");
+		params_confirm.addBodyParameter("user",
+				SpUtils.getStringSp(context, "userId", ""));
+		AccessServerUtil.server_post(this, HttpUrl.shopcars_url,
+				params_confirm, Shop_Car_List.class, new ServerResult() {
+
+					@Override
+					public void onSuccess(Object object) {
+						Toast.makeText(context, "删除成功", 1).show();
+						
+					}
+
+					@Override
+					public void onFailure(String code, String info) {
+//						Toast.makeText(context, "失败", 1).show();
 					}
 				});
 	}

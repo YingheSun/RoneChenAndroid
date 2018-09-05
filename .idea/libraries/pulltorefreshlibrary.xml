@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="pulltorefreshlibrary">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/PullToRefreshLibrary/bin/pulltorefreshlibrary.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

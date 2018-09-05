@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -41,8 +42,8 @@ public class Product_Details_Activity extends BaseFragmentActivity {
 	private TextView tv_name;
 	@ViewInject(R.id.tv_price)
 	private TextView tv_price;
-	@ViewInject(R.id.tv_content)
-	private TextView tv_content;
+	@ViewInject(R.id.we_content)
+	private WebView we_content;
 	@ViewInject(R.id.but_shoping_car)
 	private Button but_shoping_car;
 
@@ -56,6 +57,8 @@ public class Product_Details_Activity extends BaseFragmentActivity {
 	private String[] mBeans;
 
 	private RequestParams params;
+
+	private String content;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -112,8 +115,16 @@ public class Product_Details_Activity extends BaseFragmentActivity {
 		tv_price.setText("¥"
 				+ CommApplication.getInstance().customizedBundle
 						.getString("price"));
-		tv_content.setText(CommApplication.getInstance().customizedBundle
-				.getString("content"));
+//		we_content.setText(CommApplication.getInstance().customizedBundle
+//				.getString("content"));
+		
+		content=(CommApplication.getInstance().customizedBundle
+		.getString("content"));
+		we_content.getSettings().setJavaScriptEnabled(true);
+//		Toast.makeText(context, title, 1).show();
+		we_content.getSettings().setLoadWithOverviewMode(true);
+		we_content.getSettings().setUseWideViewPort(true);
+		we_content.loadData(content, "text/html", "UTF-8");
 	}
 
 	@Override

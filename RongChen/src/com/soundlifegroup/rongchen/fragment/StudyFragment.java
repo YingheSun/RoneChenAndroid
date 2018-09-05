@@ -59,8 +59,24 @@ public class StudyFragment extends Fragment implements OnClickListener {
 	private TextView tv_subject_two;
 	@ViewInject(R.id.tv_subject_three)
 	private TextView tv_subject_three;
-	@ViewInject(R.id.tv_subject_four)
-	private TextView tv_subject_four;
+	// @ViewInject(R.id.tv_subject_four)
+	// private TextView tv_subject_four;
+
+	@ViewInject(R.id.tv_subject_one_name)
+	private TextView tv_subject_one_name;
+
+	@ViewInject(R.id.tv_subject_two_name)
+	private TextView tv_subject_two_name;
+
+	@ViewInject(R.id.tv_subject_three_name)
+	private TextView tv_subject_three_name;
+
+	@ViewInject(R.id.tv_state)
+	private TextView tv_state;
+
+	// @ViewInject(R.id.tv_subject_four_name)
+	// private TextView tv_subject_four_name;
+
 	private RequestParams params, params_enroll, params_studies;
 	private String state;
 
@@ -127,6 +143,7 @@ public class StudyFragment extends Fragment implements OnClickListener {
 							} else {
 								already_registered_linear
 										.setVisibility(View.VISIBLE);
+								tv_state.setText("报名审核中");
 								no_registration_linear.setVisibility(View.GONE);
 								review_linear.setVisibility(View.GONE);
 								HttpUtils_Studies();
@@ -185,6 +202,13 @@ public class StudyFragment extends Fragment implements OnClickListener {
 					public void onSuccess(Object object) {
 						Driving_Schedule_Model driving_schedule = (Driving_Schedule_Model) object;
 						if (driving_schedule.getResults() != null) {
+							tv_subject_one_name.setText(driving_schedule
+									.getResults().get(0).getItemName());
+							tv_subject_two_name.setText(driving_schedule
+									.getResults().get(1).getItemName());
+							tv_subject_three_name.setText(driving_schedule
+									.getResults().get(2).getItemName());
+
 							if (driving_schedule.getResults().get(0)
 									.getStatus().equals("wait")) {
 								tv_subject_one.setText("未开始");
@@ -193,6 +217,9 @@ public class StudyFragment extends Fragment implements OnClickListener {
 								tv_current_state.setText(driving_schedule
 										.getResults().get(0).getItemName());
 								tv_subject_one.setText("学习中");
+								tv_state.setText(driving_schedule.getResults()
+										.get(0).getItemName()
+										+ "学习中");
 							} else if (driving_schedule.getResults().get(0)
 									.getStatus().equals("fail")) {
 								tv_subject_one.setText("失败");
@@ -209,6 +236,9 @@ public class StudyFragment extends Fragment implements OnClickListener {
 								tv_current_state.setText(driving_schedule
 										.getResults().get(1).getItemName());
 								tv_subject_two.setText("学习中");
+								tv_state.setText(driving_schedule.getResults()
+										.get(1).getItemName()
+										+ "学习中");
 							} else if (driving_schedule.getResults().get(1)
 									.getStatus().equals("fail")) {
 								tv_subject_two.setText("失败");
@@ -216,38 +246,41 @@ public class StudyFragment extends Fragment implements OnClickListener {
 									.getStatus().equals("pass")) {
 								tv_subject_two.setText("通过");
 							}
-							
-							 if (driving_schedule.getResults().get(2)
-							 .getStatus().equals("wait")) {
-							 tv_subject_three.setText("未开始");
-							 } else if (driving_schedule.getResults().get(2)
-							 .getStatus().equals("start")) {
-							 tv_current_state.setText(driving_schedule
-							 .getResults().get(2).getItemName());
-							 tv_subject_three.setText("学习中");
-							 } else if (driving_schedule.getResults().get(2)
-							 .getStatus().equals("fail")) {
-							 tv_subject_three.setText("失败");
-							 } else if (driving_schedule.getResults().get(2)
-							 .getStatus().equals("pass")) {
-							 tv_subject_three.setText("通过");
-							 }
 
-//							 if (driving_schedule.getResults().get(3)
-//							 .getStatus().equals("wait")) {
-//							 tv_current_state.setText(driving_schedule
-//							 .getResults().get(3).getItemName());
-//							 tv_subject_four.setText("未开始");
-//							 } else if (driving_schedule.getResults().get(3)
-//							 .getStatus().equals("start")) {
-//							 tv_subject_four.setText("学习中");
-//							 } else if (driving_schedule.getResults().get(3)
-//							 .getStatus().equals("fail")) {
-//							 tv_subject_four.setText("失败");
-//							 } else if (driving_schedule.getResults().get(3)
-//							 .getStatus().equals("pass")) {
-//							 tv_subject_four.setText("通过");
-//							 }
+							if (driving_schedule.getResults().get(2)
+									.getStatus().equals("wait")) {
+								tv_subject_three.setText("未开始");
+							} else if (driving_schedule.getResults().get(2)
+									.getStatus().equals("start")) {
+								tv_current_state.setText(driving_schedule
+										.getResults().get(2).getItemName());
+								tv_subject_three.setText("学习中");
+								tv_state.setText(driving_schedule.getResults()
+										.get(3).getItemName()
+										+ "学习中");
+							} else if (driving_schedule.getResults().get(2)
+									.getStatus().equals("fail")) {
+								tv_subject_three.setText("失败");
+							} else if (driving_schedule.getResults().get(2)
+									.getStatus().equals("pass")) {
+								tv_subject_three.setText("通过");
+							}
+
+							// if (driving_schedule.getResults().get(3)
+							// .getStatus().equals("wait")) {
+							// tv_current_state.setText(driving_schedule
+							// .getResults().get(3).getItemName());
+							// tv_subject_four.setText("未开始");
+							// } else if (driving_schedule.getResults().get(3)
+							// .getStatus().equals("start")) {
+							// tv_subject_four.setText("学习中");
+							// } else if (driving_schedule.getResults().get(3)
+							// .getStatus().equals("fail")) {
+							// tv_subject_four.setText("失败");
+							// } else if (driving_schedule.getResults().get(3)
+							// .getStatus().equals("pass")) {
+							// tv_subject_four.setText("通过");
+							// }
 						}
 
 					}

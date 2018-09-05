@@ -117,6 +117,7 @@
             android:background="#ffffff" >
 
             <TextView
+                android:id="@+id/tv_subject_one_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -148,6 +149,7 @@
             android:background="#ffffff" >
 
             <TextView
+                android:id="@+id/tv_subject_two_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -179,6 +181,7 @@
             android:background="#ffffff" >
 
             <TextView
+                android:id="@+id/tv_subject_three_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -198,37 +201,6 @@
                 android:textColor="#333333"
                 android:textSize="13sp" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="#d5d5d5" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="#ffffff" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:text="科目4考试成绩："
-                android:textColor="#999999"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/tv_subject_four"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="10dp"
-                android:textColor="#333333"
-                android:textSize="13sp" />
-        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -236,8 +208,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="15dp"
-        android:background="#ffffff"
-        android:visibility="gone" >
+        android:background="#ffffff" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -250,6 +221,7 @@
             android:textSize="13sp" />
 
         <TextView
+            android:id="@+id/tv_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -7,7 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.sax.StartElementListener;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -29,10 +31,21 @@ public class Shop_Adapter extends BaseAdapter {
 	private float univalent;
 	private float zero = 0;
 	private float num;
+	private LayoutInflater mInflater;
+	private MyClickListener mListener;
 
-	public Shop_Adapter(Context context, List<Shop> dataList) {
+	public interface Callback {
+		public void click(View v);
+	}
+
+	public Shop_Adapter(Context context, List<Shop> dataList,
+			MyClickListener listener) {
 		mContext = context;
 		this.dataList = dataList;
+		mInflater = LayoutInflater.from(context);
+		mListener = listener;
+		// mInflater = LayoutInflater.from(mContext);
+		// mCallback = callback;
 	}
 
 	@Override
@@ -86,9 +99,9 @@ public class Shop_Adapter extends BaseAdapter {
 				results.setProductPrice(results.getProductPrice()
 						+ results.getProductPrice() / (results.getAmount() - 1));
 				Shop_Adapter.this.notifyDataSetChanged();
-				num=0;
+				num = 0;
 				for (int i = 0; i < dataList.size(); i++) {
-					num = num + dataList.get(i).getProductPrice();				
+					num = num + dataList.get(i).getProductPrice();
 				}
 				Shop_Car_Activity.tv_total.setText(num + "");
 			}
@@ -106,7 +119,7 @@ public class Shop_Adapter extends BaseAdapter {
 							- results.getProductPrice()
 							/ (results.getAmount() + 1));
 					Shop_Adapter.this.notifyDataSetChanged();
-					num=0;
+					num = 0;
 					for (int i = 0; i < dataList.size(); i++) {
 						num = num + dataList.get(i).getProductPrice();
 					}
@@ -116,8 +129,22 @@ public class Shop_Adapter extends BaseAdapter {
 			}
 		});
 
+		holder.img_dustbin.setOnClickListener(mListener);
+		holder.img_dustbin.setTag(position);
 		return convertView;
 
+	}
+
+	public static abstract class MyClickListener implements OnClickListener {
+		/**
+		 * 基类的onClick方法
+		 */
+		@Override
+		public void onClick(View v) {
+			myOnClick((Integer) v.getTag(), v);
+		}
+
+		public abstract void myOnClick(int position, View v);
 	}
 
 	class Holder {
@@ -133,6 +160,9 @@ public class Shop_Adapter extends BaseAdapter {
 		ImageView shop_minus;
 		@ViewInject(R.id.tv_number)
 		TextView tv_number;
+		@ViewInject(R.id.img_dustbin)
+		ImageView img_dustbin;
+
 	}
 
 }

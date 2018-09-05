@@ -1,0 +1,43 @@
+<component name="libraryTable">
+  <library name="dexedLibs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/universal-image-loader-1.9.3-c5ec56973b606241b57db86853af75c7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/slidingmenu-154b958b7f61a3395d479a1d73c9d4af.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/slidingmenu-e733c60a231b3f6e288307ff146c6d9b.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/universal-image-loader-1.9.3-873fac5e53be1fd6dc47b29b63b2eb07.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/android-support-v4-0507a02afce8a781b5aa0c45f7c529ad.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/pulltorefreshlibrary-6864471f768d51ba011cd209a22cf32c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/universal-image-loader-1.9.3-26bd3015c73e049b768192e84149e419.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/universal-image-loader-1.9.3-a165a6821afd61ad34adca0c7a0e9999.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/picasso-2.5.2-795fc78ce6700ac811886ebcaaf17e89.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/gson-2.2.4-0f0d0492cc6de4bf69af965115d86c40.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/gson-2.2.4-4a6219d6486183a0c08f779672e8a462.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/gson-2.2.4-0ddebd156aeb2139af8f89d1d7c7df7d.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/picasso-2.5.2-6aa2eb3720d9633d456f8d2e4d952149.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/picasso-2.5.2-e21d2f694717c88244c82b03607e0b8d.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/universal-image-loader-1.9.3-d990d20beac1798e64df99adb204fa66.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/slidingmenu-90baa2297220a1239b3f4b9f16a42c7c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/android-support-v4-70515fb52b8bf55565eaaf04fa58f211.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/xUtils-2.6.14-d27d3f50934818755f92f006eca2af2c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/pulltorefreshlibrary-86a679e5bd8e0c7dcaa6505c6bed2cd2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/android-support-v4-162bef68b8bc0cd25d9e098722995bad.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/slidingmenu-b8991d3837fea3fbe6594bb5bfac3799.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/picasso-2.5.2-d2f117da764531b555fb536788bebc8e.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/pulltorefreshlibrary-ad75fe4f73032422292c62e5cdeac1bd.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/xUtils-2.6.14-68e27975bf7484c531d960225d4fbd86.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/picasso-2.5.2-22fce0ea44140484ff5626e357151ff5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/xUtils-2.6.14-2031b48ec4d2d5358a71c26a2011d46f.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/android-support-v4-4586072addf2790a4ee54d23175a4224.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/pulltorefreshlibrary-12f79340b78c5d6ffec675e4e2e70a63.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/xUtils-2.6.14-176695c2aa48f3e953632ecf1cd556bb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/gson-2.2.4-fd18d39ecbb112bb4fce3907aa76dd4c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/xUtils-2.6.14-50ec309e8d464d1cb36469f870da9e82.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/slidingmenu-ae0d550b32f238e002cdaf4ac9599610.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/pulltorefreshlibrary-61ae24c75e17c6154d8fe93340442ca6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/android-support-v4-cd53daa7c152fa4d45bdc4f1a1b184ac.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/bin/dexedLibs/gson-2.2.4-c2b17716bde7ffeb4b2c7d57d69b9e5f.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

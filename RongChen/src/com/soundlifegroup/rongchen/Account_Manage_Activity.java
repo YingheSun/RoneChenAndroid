@@ -43,7 +43,15 @@ public class Account_Manage_Activity extends BaseFragmentActivity {
 		setContentView(R.layout.account_manage);
 		ViewUtils.inject(this);
 		init();
-		sex = "Male";
+		// sex = "Male";
+		sex = CommApplication.getInstance().customizedBundle.getString("name");
+		if (sex.equals("Male")) {
+			radioMale.setChecked(true);
+		} else if (sex.equals("Female")) {
+			radioFemale.setChecked(true);
+		}else {
+			radioMale.setChecked(true);
+		}
 		setListner();
 	}
 
@@ -73,6 +81,8 @@ public class Account_Manage_Activity extends BaseFragmentActivity {
 		drawable_menu.setBounds(0, 0, drawable_menu.getMinimumWidth(),
 				drawable_menu.getMinimumHeight());
 		tv_titlebar_left.setCompoundDrawables(drawable_menu, null, null, null);
+		et_user_name.setText(CommApplication.getInstance().customizedBundle
+				.getString("name"));
 
 	}
 

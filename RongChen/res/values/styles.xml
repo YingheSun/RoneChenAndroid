@@ -25,5 +25,13 @@
         <item name="android:button">@null</item>
         <item name="android:layout_marginRight">1.5dip</item>
     </style>
+    
+    <style name="MyDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 
 </resources>

@@ -68,6 +68,7 @@ public class AccountFragment extends Fragment implements OnClickListener {
 	private TextView my_phone;
 	private RequestParams params = new RequestParams();
 	private MyReceiver myReceiver;
+	private String name,sex;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -102,6 +103,10 @@ public class AccountFragment extends Fragment implements OnClickListener {
 			startActivity(Phone_Activity.class);
 			break;
 		case R.id.my_editor:
+			CommApplication.getInstance().customizedBundle.putString(
+					"name", name);
+			CommApplication.getInstance().customizedBundle.putString(
+					"sex", sex);
 			startActivity(Account_Manage_Activity.class);
 			break;
 		case R.id.order_linear:
@@ -125,6 +130,10 @@ public class AccountFragment extends Fragment implements OnClickListener {
 					@Override
 					public void onSuccess(Object object) {
 						Learn_Drive_Model learn_drive = (Learn_Drive_Model) object;
+						name=learn_drive.getResults().get(0)
+								.getRealName();
+						sex=learn_drive.getResults().get(0)
+								.getGender();
 						my_name.setText(learn_drive.getResults().get(0)
 								.getRealName());
 						my_id.setText("手机:"

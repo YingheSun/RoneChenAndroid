@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/RongChen/libs/gson-2.2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/libs/android-support-v4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/libs/picasso-2.5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/libs/universal-image-loader-1.9.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/RongChen/libs/xUtils-2.6.14.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
